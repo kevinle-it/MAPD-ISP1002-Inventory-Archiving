@@ -8,6 +8,9 @@
 import UIKit
 
 class ItemTableViewController: UITableViewController {
+    
+    // The item list data showing on UI
+    let itemList = ItemList()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,13 +31,14 @@ class ItemTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return itemList.items.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "item", for: indexPath)
 
         // Configure the cell...
+        cell.textLabel!.text = itemList.items[indexPath.row].name
 
         return cell
     }
