@@ -21,6 +21,11 @@ class ItemTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
          self.navigationItem.leftBarButtonItem = self.editButtonItem
     }
+    
+    // Reload table view data after go back from details scene to this scene to show newly added item (if any)
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
 
     // MARK: - Table view data source
 

@@ -24,7 +24,15 @@ class DetailsViewController: UIViewController {
         
     }
     
+    // Handle clicking Save button
     @IBAction func save(_ sender: Any) {
+        // Name & SKU Fields are required to add new item
+        if !nameField.text!.isEmpty && !SKUField.text!.isEmpty {
+            let item = Item(name: nameField.text!, SKU: SKUField.text!, description: descField.text!, dateAdded: dateField.date)
+            itemList.addItem(item: item)
+            // Go back to Items scene
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     
     /*
