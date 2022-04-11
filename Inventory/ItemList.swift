@@ -15,6 +15,15 @@ class ItemList{
         return documentDirectory.appendingPathComponent("item.archive")
     }()
     
+    init() {
+        do {
+            let data = try Data(contentsOf: itemURL)
+            items = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! [Item]
+        } catch let err {
+            print(err)
+        }
+    }
+    
     func addItem(item: Item){
         items.append(item)
     }
