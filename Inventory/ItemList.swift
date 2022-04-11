@@ -29,4 +29,13 @@ class ItemList{
         items.insert(temp, at: to)
     }
     
+    func save() {
+        do {
+            let data = try NSKeyedArchiver.archivedData(withRootObject: items, requiringSecureCoding: false)
+            try data.write(to: itemURL)
+        } catch let err {
+            print(err)
+        }
+    }
+    
 }
