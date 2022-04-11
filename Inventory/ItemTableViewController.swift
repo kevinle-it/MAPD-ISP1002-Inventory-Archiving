@@ -8,9 +8,9 @@
 import UIKit
 
 class ItemTableViewController: UITableViewController {
-    
+
     // The item list data showing on UI
-    let itemList = ItemList()
+    var itemList: ItemList!
 
     override func viewDidLoad() {
         super.viewDidLoad()

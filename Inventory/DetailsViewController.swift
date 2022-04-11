@@ -37,7 +37,7 @@ class DetailsViewController: UIViewController {
             let selectedItem = itemList.items[selectedItemIndex!]
             nameField.text = selectedItem.name
             SKUField.text = selectedItem.SKU
-            descField.text = selectedItem.description
+            descField.text = selectedItem.itemDescription
             dateField.date = selectedItem.dateAdded
         }
     }
