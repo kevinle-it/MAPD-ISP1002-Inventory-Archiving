@@ -9,6 +9,9 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
+    // create a property for the segue prepare function from ItemTableViewController to pass to
+    var itemList: ItemList!
+
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var SKUField: UITextField!
     @IBOutlet weak var descField: UITextField!

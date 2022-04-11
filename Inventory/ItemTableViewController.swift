@@ -82,6 +82,10 @@ class ItemTableViewController: UITableViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         
+        // pass over the itemList to the destination (DetailsViewController)
+        let dst = segue.destination as! DetailsViewController
+        dst.itemList = itemList
+
     }
 
 }
