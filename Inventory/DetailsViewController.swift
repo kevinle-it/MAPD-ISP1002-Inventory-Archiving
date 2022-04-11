@@ -47,9 +47,11 @@ class DetailsViewController: UIViewController {
         // Name & SKU Fields are required to add new item
         if !nameField.text!.isEmpty && !SKUField.text!.isEmpty {
             let item = Item(name: nameField.text!, SKU: SKUField.text!, description: descField.text!, dateAdded: dateField.date)
+            // Update item data in the item list on edit mode
             if isEditMode && selectedItemIndex != nil {
                 itemList.items[selectedItemIndex!] = item
             } else {
+                // Otherwise, add new item to the item list on add mode
                 itemList.addItem(item: item)
             }
             // Go back to Items scene

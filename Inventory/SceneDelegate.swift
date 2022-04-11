@@ -10,6 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    // Item List to use globally in the app
     var itemList = ItemList()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -18,6 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
 
+        // Get Item Table View Controller to inject a single intance of item list created above
         let navController = window?.rootViewController as! UINavigationController
         let itemsTableViewController = navController.topViewController as! ItemTableViewController
         itemsTableViewController.itemList = itemList
@@ -39,6 +41,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called when the scene will move from an active state to an inactive state.
         // This may occur due to temporary interruptions (ex. an incoming phone call).
         
+        // Archive item list to retain the data
         itemList.save()
     }
 

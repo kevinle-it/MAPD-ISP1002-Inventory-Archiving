@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Item List Model to handle multiple operations on an item list such as: Add, Remove, or Change Position in the list, and saving and loading data to and from archive
 class ItemList{
     var items = [Item]()
     let itemURL: URL = {
@@ -15,6 +16,7 @@ class ItemList{
         return documentDirectory.appendingPathComponent("item.archive")
     }()
     
+    // Load data from archive on Item List initializing
     init() {
         do {
             let data = try Data(contentsOf: itemURL)
@@ -38,6 +40,7 @@ class ItemList{
         items.insert(temp, at: to)
     }
     
+    // Archive items data to document directory
     func save() {
         do {
             let data = try NSKeyedArchiver.archivedData(withRootObject: items, requiringSecureCoding: false)

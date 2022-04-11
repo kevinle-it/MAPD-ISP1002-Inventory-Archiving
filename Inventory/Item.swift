@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Item Data Model
 class Item : NSObject, NSCoding {
     var name: String
     var SKU: String
@@ -20,6 +21,7 @@ class Item : NSObject, NSCoding {
         self.dateAdded = dateAdded
     }
 
+    // Decode item data from archive
     required init?(coder: NSCoder) {
         name = coder.decodeObject(forKey: "name") as! String
         SKU = coder.decodeObject(forKey: "SKU") as! String
@@ -29,6 +31,7 @@ class Item : NSObject, NSCoding {
         super.init()
     }
 
+    // Encode for archiving item data
     func encode(with coder: NSCoder) {
         coder.encode(name, forKey: "name")
         coder.encode(SKU, forKey: "SKU")
