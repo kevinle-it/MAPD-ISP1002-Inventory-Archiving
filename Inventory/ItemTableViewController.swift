@@ -91,6 +91,16 @@ class ItemTableViewController: UITableViewController {
         let dst = segue.destination as! DetailsViewController
         dst.itemList = itemList
 
+        // pass over the current mode and selected row index (if any) to the destination (DetailsViewController)
+        if segue.identifier == "edit" {
+            dst.isEditMode = true
+            if let selectedRow = tableView.indexPathForSelectedRow?.row {
+                dst.selectedItemIndex = selectedRow
+            }
+        } else if segue.identifier == "add" {
+            dst.isEditMode = false
+        }
+
     }
 
 }
