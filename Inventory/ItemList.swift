@@ -9,6 +9,11 @@ import Foundation
 
 class ItemList{
     var items = [Item]()
+    let itemURL: URL = {
+        let documentDirectories = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let documentDirectory = documentDirectories.first!
+        return documentDirectory.appendingPathComponent("item.archive")
+    }()
     
     func addItem(item: Item){
         items.append(item)
